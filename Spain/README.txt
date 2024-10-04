@@ -1,0 +1,18 @@
+                                                                                                           بســـــــم آلُلُہ آلُرٍحٍمــــــن آلُرٍحٍيَــــــم.
+
+PROJECT TEAM MEMBERS:
+
+STUDENT: ABDULRAHMAN AHMED ABUSWEDER
+
+STUDENT: ASH-SHARIF NOUREDDINE AL-GHOUIL
+
+
+THIS PROJECT IS A TOURISM WEBSITE FOR THE COUNTRY OF SPAIN.
+
+
+IT CONSISTS OF 14 HTML PAGES AND 13 CSS FILES.
+
+
+THE TOTAL NUMBER OF LINES IN THE HTML FILES IS 2838.
+
+THE TOTAL NUMBER OF LINES IN THE CSS FILES IS 3243.

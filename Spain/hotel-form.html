@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/pngegg.png">
+
+    <link rel="stylesheet" href="css/hotel.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>نموذج تعبئة البيانات</title>
+    <script>
+        function validateForm() {
+
+            const emailInput = document.querySelector('#R-email');
+            const phoneInput = document.querySelector('#phone-No');
+            const zipcodeInput = document.querySelector('#zipcode');
+
+
+            const email = emailInput.value.trim();
+            const phone = phoneInput.value.trim();
+            const zipcode = zipcodeInput.value.trim();
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phonePattern = /^\d{10,15}$/;
+            const zipcodePattern = /^\d{4,10}$/;
+
+            const errorElements = document.querySelectorAll('.error-message');
+
+            // يزيل اي رسالة خطأ متواجدة
+            errorElements.forEach(element => element.remove());
+
+            let isValid = true;
+
+            // يتحقق من نمط البريد
+            if (!emailPattern.test(email)) {
+                displayError(emailInput, 'البريد الإلكتروني غير صحيح');
+                isValid = false;
+            }
+
+            // يتحقق من صحة رقم الهاتف
+            if (!phonePattern.test(phone)) {
+                displayError(phoneInput, 'رقم الهاتف غير صحيح');
+                isValid = false;
+            }
+
+            // يتحقق من صحة الرمز البريدي
+            if (!zipcodePattern.test(zipcode)) {
+                displayError(zipcodeInput, 'الرمز البريدي غير صحيح');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+        // عند نواجد خطأ يقوم بانشاء رسالة خطأ
+        function displayError(inputElement, message) {
+            const errorMsg = document.createElement('div');
+            errorMsg.classList.add('error-message', 'error');
+            errorMsg.textContent = message;
+            inputElement.parentNode.insertBefore(errorMsg, inputElement.nextSibling);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const confirmButton = document.getElementById('confirm-btn-f');
+            confirmButton.addEventListener('click', (event) => {
+                event.preventDefault(); //يمنع ال المتصفح من عمل refresh للصفحة عند الضغط على تاكيد
+                if (validateForm()) {
+                    //عند التحقق من جميع الشروط والضغط على تأكيد يحولنا الى الصفحة الرئيسية
+                    window.location.href = "hotel-done.html";
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h3 class="spain-world">إسبانيا</h3>
+        <ul class="nav-cont">
+            <li><a href="index.html" class="main">الرئيسية</a></li>
+            <li><a href="hotel.html" class="hotel-link">حجز الفندق</a></li>
+            <li><a href="place.html">مواقع تراثية</a></li>
+            <li><a href="gallery.html">معرض الصور</a></li>
+            <li><a href="login.html">
+                    <button class="btn-login">تسجيل الدخول</button>
+                </a></li>
+        </ul>
+    </div>
+    <div class="section4">
+        <div class="section5">
+            <div class="register-form">
+                <br><br>
+
+
+                <div class="form">
+                    <br>
+                    <h2 id="form-title">يرجى تعبئة البيانات</h2>
+                    <br><br>
+                    <form action="#">
+                        <div class="fnamelname">
+                            <input type="text" placeholder="الأسم الأول" autofocus required>
+                            <input type="text" placeholder="اللقب" required>
+                        </div>
+                        <br>
+                        <div class="email-phone">
+                            <div class="email-error">
+                                <input type="email" id="R-email" placeholder="البريد الإكتروني" required>
+
+                            </div>
+                            <div class="phone-error">
+                                <input type="text" id="phone-No" placeholder="الهاتف" required maxlength="10">
+
+                            </div>
+
+                        </div>
+
+                        <br>
+                        <label for="book-time">تاريخ الحجز :</label>
+                        <br>
+                        <input type="date" id="book-time" required>
+                        <br>
+                        <br>
+                        <div id="form-numbers">
+                            <div class="no-of-ad-ch">
+                                <label for="no-of-adults">عدد البالغين :</label>
+
+                                <input type="number" id="no-of-adults" required>
+
+                            </div>
+                            <div class="no-of-ad-ch">
+                                <label for="no-of-children">عدد الأطفال :</label>
+
+                                <input type="number" id="no-of-children" required>
+                            </div>
+                        </div>
+                        <div id="address-div">
+                            <div class="addressf">
+                                <label for="address"> عنوانك :</label>
+                                <input type="text" id="address" required>
+                            </div>
+                            <div class="addressf">
+                                <label for="city">المدينة :</label>
+                                <input type="text" id="city" required>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="payment-method">
+                            <label for="credit-info"> <u>يرجى ادخال معلومات بطاقتك المصرفية </u> </label>
+                            <br>
+                            <div class="credit-info1">
+                                <div class="credit-number">
+                                    <label for="card-number">رقم البطاقة</label>
+                                    <input type="text" name="card-number" id="card-number" maxlength="16" required
+                                        placeholder="1234-1234-1234-1234">
+                                </div>
+                                <div class="credit-code">
+                                    <label for="security-code">رمز الامان</label>
+                                    <input type="text" id="security-code" maxlength="4" required placeholder="1234">
+                                </div>
+                                <div class="credit-name">
+                                    <label for="card-name">إسم حامل البطاقة</label>
+                                    <input type="text" name="card-name" id="card-name" required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="credit-info2">
+
+                                <div class="credit-date">
+                                    <label for="card-date">تاريخ انتهاء الصلاحية</label>
+                                    <input name="expiry" id="expiry" type="text" placeholder="MM/YYYY" required />
+                                </div>
+                                <div id="cntr-zipcode">
+                                    <div class="country-div">
+                                        <label for="country">الدولة / المنطقة : </label>
+
+                                        <select name="countries" id="country" class="countries-select" required=""
+                                            autocomplete="country">
+                                            <option value="" disabled="">-- يرجى اختيار الدولة / المنطقة --</option>
+                                            <option value="is" data-prefix="">
+                                                آيسلندا
+                                            </option>
+                                            <option value="xa" data-prefix="">
+                                                أبخازيا
+                                            </option>
+                                            <option value="et" data-prefix="">
+                                                أثيوبيا
+                                            </option>
+                                            <option value="az" data-prefix="">
+                                                أذربيجان
+                                            </option>
+                                            <option value="am" data-prefix="">
+                                                أرمينيا
+                                            </option>
+                                            <option value="aw" data-prefix="">
+                                                أروبا
+                                            </option>
+                                            <option value="au" data-prefix="">
+                                                أستراليا
+                                            </option>
+                                            <option value="af" data-prefix="">
+                                                أفغانستان
+                                            </option>
+                                            <option value="al" data-prefix="">
+                                                ألبانيا
+                                            </option>
+                                            <option value="de" data-prefix="">
+                                                ألمانيا
+                                            </option>
+                                            <option value="ag" data-prefix="">
+                                                أنتيغوا وبربودا
+                                            </option>
+                                            <option value="ad" data-prefix="">
+                                                أندورا
+                                            </option>
+                                            <option value="ao" data-prefix="">
+                                                أنغولا
+                                            </option>
+                                            <option value="ai" data-prefix="">
+                                                أنغويلا
+                                            </option>
+                                            <option value="uy" data-prefix="">
+                                                أوروغواي
+                                            </option>
+                                            <option value="uz" data-prefix="">
+                                                أوزباكستان
+                                            </option>
+                                            <option value="ug" data-prefix="">
+                                                أوغندا
+                                            </option>
+                                            <option value="ua" data-prefix="">
+                                                أوكرانيا
+                                            </option>
+                                            <option value="ie" data-prefix="">
+                                                أيرلندا
+                                            </option>
+                                            <option value="er" data-prefix="">
+                                                إريتريا
+                                            </option>
+                                            <option value="es" data-prefix="">
+                                                إسبانيا
+                                            </option>
+                                            <option value="ee" data-prefix="">
+                                                إستونيا
+                                            </option>
+                                            <option value="sz" data-prefix="">
+                                                إسواتيني
+                                            </option>
+                                            <option value="id" data-prefix="">
+                                                إندونيسيا
+                                            </option>
+                                            <option value="ir" data-prefix="">
+                                                إيران
+                                            </option>
+                                            <option value="it" data-prefix="">
+                                                إيطاليا
+                                            </option>
+                                            <option value="tf" data-prefix="">
+                                                الأراضي الجنوبية الفرنسية
+                                            </option>
+                                            <option value="ps" data-prefix="">
+                                                الأراضي الفلسطينية
+                                            </option>
+                                            <option value="ar" data-prefix="">
+                                                الأرجنتين
+                                            </option>
+                                            <option value="jo" data-prefix="">
+                                                الأردن
+                                            </option>
+                                            <option value="ec" data-prefix="">
+                                                الإكوادور
+                                            </option>
+                                            <option value="ae" data-prefix="">
+                                                الإمارات العربية المتحدة
+                                            </option>
+                                            <option value="bs" data-prefix="">
+                                                الباهاما
+                                            </option>
+                                            <option value="bh" data-prefix="">
+                                                البحرين
+                                            </option>
+                                            <option value="br" data-prefix="">
+                                                البرازيل
+                                            </option>
+                                            <option value="pt" data-prefix="">
+                                                البرتغال
+                                            </option>
+                                            <option value="ba" data-prefix="">
+                                                البوسنة والهرسك
+                                            </option>
+                                            <option value="dz" data-prefix="">
+                                                الجزائر
+                                            </option>
+                                            <option value="dk" data-prefix="">
+                                                الدنمارك
+                                            </option>
+                                            <option value="cv" data-prefix="">
+                                                الرأس الأخضر
+                                            </option>
+                                            <option value="sv" data-prefix="">
+                                                السلفادور
+                                            </option>
+                                            <option value="sn" data-prefix="">
+                                                السنغال
+                                            </option>
+                                            <option value="sd" data-prefix="">
+                                                السودان
+                                            </option>
+                                            <option value="se" data-prefix="">
+                                                السويد
+                                            </option>
+                                            <option value="so" data-prefix="">
+                                                الصومال
+                                            </option>
+                                            <option value="cn" data-prefix="">
+                                                الصين
+                                            </option>
+                                            <option value="iq" data-prefix="">
+                                                العراق
+                                            </option>
+                                            <option value="ga" data-prefix="">
+                                                الغابون
+                                            </option>
+                                            <option value="ph" data-prefix="">
+                                                الفلبين
+                                            </option>
+                                            <option value="xc" data-prefix="">
+                                                القرم
+                                            </option>
+                                            <option value="aq" data-prefix="">
+                                                القطب الجنوبي
+                                            </option>
+                                            <option value="cm" data-prefix="">
+                                                الكاميرون
+                                            </option>
+                                            <option value="cg" data-prefix="">
+                                                الكونغو
+                                            </option>
+                                            <option value="kw" data-prefix="">
+                                                الكويت
+                                            </option>
+                                            <option value="hu" data-prefix="">
+                                                المجر
+                                            </option>
+                                            <option value="io" data-prefix="">
+                                                المحيط الهندي البريطاني
+                                            </option>
+                                            <option value="ma" data-prefix="">
+                                                المغرب
+                                            </option>
+                                            <option value="mx" data-prefix="">
+                                                المكسيك
+                                            </option>
+                                            <option value="sa" data-prefix="">
+                                                المملكة العربية السعودية
+                                            </option>
+                                            <option value="gb" data-prefix="">
+                                                المملكة المتحدة
+                                            </option>
+                                            <option value="no" data-prefix="">
+                                                النرويج
+                                            </option>
+                                            <option value="at" data-prefix="">
+                                                النمسا
+                                            </option>
+                                            <option value="ne" data-prefix="">
+                                                النيجر
+                                            </option>
+                                            <option value="in" data-prefix="">
+                                                الهند
+                                            </option>
+                                            <option value="us" data-prefix="">
+                                                الولايات المتحدة الأمريكية
+                                            </option>
+                                            <option value="jp" data-prefix="">
+                                                اليابان
+                                            </option>
+                                            <option value="ye" data-prefix="">
+                                                اليمن
+                                            </option>
+                                            <option value="gr" data-prefix="">
+                                                اليونان
+                                            </option>
+                                            <option value="pg" data-prefix="">
+                                                بابوا غينيا الجديدة
+                                            </option>
+                                            <option value="py" data-prefix="">
+                                                باراغواي
+                                            </option>
+                                            <option value="bb" data-prefix="">
+                                                باربادوس
+                                            </option>
+                                            <option value="pk" data-prefix="">
+                                                باكستان
+                                            </option>
+                                            <option value="pw" data-prefix="">
+                                                بالاو
+                                            </option>
+                                            <option value="pn" data-prefix="">
+                                                بتكايرن
+                                            </option>
+                                            <option value="bm" data-prefix="">
+                                                برمودا
+                                            </option>
+                                            <option value="bn" data-prefix="">
+                                                بروناي دار السلام
+                                            </option>
+                                            <option value="be" data-prefix="">
+                                                بلجيكا
+                                            </option>
+                                            <option value="bg" data-prefix="">
+                                                بلغاريا
+                                            </option>
+                                            <option value="bz" data-prefix="">
+                                                بليز
+                                            </option>
+                                            <option value="bd" data-prefix="">
+                                                بنغلاديش
+                                            </option>
+                                            <option value="pa" data-prefix="">
+                                                بنما
+                                            </option>
+                                            <option value="bj" data-prefix="">
+                                                بنين
+                                            </option>
+                                            <option value="bt" data-prefix="">
+                                                بوتان
+                                            </option>
+                                            <option value="bw" data-prefix="">
+                                                بوتسوانا
+                                            </option>
+                                            <option value="pr" data-prefix="">
+                                                بورتوريكو
+                                            </option>
+                                            <option value="bf" data-prefix="">
+                                                بوركينا فاسو
+                                            </option>
+                                            <option value="bi" data-prefix="">
+                                                بوروندي
+                                            </option>
+                                            <option value="pl" data-prefix="">
+                                                بولندا
+                                            </option>
+                                            <option value="bo" data-prefix="">
+                                                بوليفيا
+                                            </option>
+                                            <option value="pf" data-prefix="">
+                                                بولينيزيا الفرنسية
+                                            </option>
+                                            <option value="bq" data-prefix="">
+                                                بونير وسينت أوستاتيوس وسابا
+                                            </option>
+                                            <option value="pe" data-prefix="">
+                                                بيرو
+                                            </option>
+                                            <option value="th" data-prefix="">
+                                                تايلاند
+                                            </option>
+                                            <option value="tw" data-prefix="">
+                                                تايوان
+                                            </option>
+                                            <option value="tm" data-prefix="">
+                                                تركمانستان
+                                            </option>
+                                            <option value="tr" data-prefix="">
+                                                تركيا
+                                            </option>
+                                            <option value="tt" data-prefix="">
+                                                ترينيداد وتوباغو
+                                            </option>
+                                            <option value="td" data-prefix="">
+                                                تشاد
+                                            </option>
+                                            <option value="cl" data-prefix="">
+                                                تشيلي
+                                            </option>
+                                            <option value="tz" data-prefix="">
+                                                تنزانيا
+                                            </option>
+                                            <option value="tg" data-prefix="">
+                                                توغو
+                                            </option>
+                                            <option value="tv" data-prefix="">
+                                                توفالو
+                                            </option>
+                                            <option value="tk" data-prefix="">
+                                                توكيلاو
+                                            </option>
+                                            <option value="tn" data-prefix="">
+                                                تونس
+                                            </option>
+                                            <option value="to" data-prefix="">
+                                                تونغا
+                                            </option>
+                                            <option value="tl" data-prefix="">
+                                                تيمور الشرقية
+                                            </option>
+                                            <option value="jm" data-prefix="">
+                                                جامايكا
+                                            </option>
+                                            <option value="gi" data-prefix="">
+                                                جبل طارق
+                                            </option>
+                                            <option value="vi" data-prefix="">
+                                                جزر العذراء الأمريكية
+                                            </option>
+                                            <option value="vg" data-prefix="">
+                                                جزر العذراء البريطانية
+                                            </option>
+                                            <option value="km" data-prefix="">
+                                                جزر القمر
+                                            </option>
+                                            <option value="mv" data-prefix="">
+                                                جزر المالديف
+                                            </option>
+                                            <option value="um" data-prefix="">
+                                                جزر الولايات المتحدة البعيدة الصغرى
+                                            </option>
+                                            <option value="tc" data-prefix="">
+                                                جزر توركس وكايكوس
+                                            </option>
+                                            <option value="gs" data-prefix="">
+                                                جزر جورجيا الجنوبية وساندويتش الجنوبية
+                                            </option>
+                                            <option value="sb" data-prefix="">
+                                                جزر سليمان
+                                            </option>
+                                            <option value="fo" data-prefix="">
+                                                جزر فارو
+                                            </option>
+                                            <option value="fk" data-prefix="">
+                                                جزر فوكلاند (مالفيناس)
+                                            </option>
+                                            <option value="ky" data-prefix="">
+                                                جزر كايمان
+                                            </option>
+                                            <option value="ck" data-prefix="">
+                                                جزر كوك
+                                            </option>
+                                            <option value="cc" data-prefix="">
+                                                جزر كوكس كيلنغ
+                                            </option>
+                                            <option value="mh" data-prefix="">
+                                                جزر مارشال
+                                            </option>
+                                            <option value="mp" data-prefix="">
+                                                جزر ماريانا الشمالية
+                                            </option>
+                                            <option value="hm" data-prefix="">
+                                                جزر هيرد وماكدونالد
+                                            </option>
+                                            <option value="wf" data-prefix="">
+                                                جزر واليس وفوتونا
+                                            </option>
+                                            <option value="bv" data-prefix="">
+                                                جزيرة بوفيت
+                                            </option>
+                                            <option value="cx" data-prefix="">
+                                                جزيرة كريسماس
+                                            </option>
+                                            <option value="im" data-prefix="">
+                                                جزيرة مان
+                                            </option>
+                                            <option value="nf" data-prefix="">
+                                                جزيرة نورفولك
+                                            </option>
+                                            <option value="cf" data-prefix="">
+                                                جمهورية أفريقيا الوسطى
+                                            </option>
+                                            <option value="cz" data-prefix="">
+                                                جمهورية التشيك
+                                            </option>
+                                            <option value="do" data-prefix="">
+                                                جمهورية الدومينيكان
+                                            </option>
+                                            <option value="cd" data-prefix="">
+                                                جمهورية الكونغو الديمقراطية
+                                            </option>
+                                            <option value="za" data-prefix="">
+                                                جنوب أفريقيا
+                                            </option>
+                                            <option value="ss" data-prefix="">
+                                                جنوب السودان
+                                            </option>
+                                            <option value="ge" data-prefix="">
+                                                جورجيا
+                                            </option>
+                                            <option value="dj" data-prefix="">
+                                                جيبوتي
+                                            </option>
+                                            <option value="je" data-prefix="">
+                                                جيرسي
+                                            </option>
+                                            <option value="dm" data-prefix="">
+                                                دومينيكا
+                                            </option>
+                                            <option value="rw" data-prefix="">
+                                                رواندا
+                                            </option>
+                                            <option value="ru" data-prefix="">
+                                                روسيا
+                                            </option>
+                                            <option value="by" data-prefix="">
+                                                روسيا البيضاء
+                                            </option>
+                                            <option value="ro" data-prefix="">
+                                                رومانيا
+                                            </option>
+                                            <option value="re" data-prefix="">
+                                                ريونيون
+                                            </option>
+                                            <option value="zm" data-prefix="">
+                                                زامبيا
+                                            </option>
+                                            <option value="zw" data-prefix="">
+                                                زيمبابوي
+                                            </option>
+                                            <option value="ci" data-prefix="">
+                                                ساحل العاج
+                                            </option>
+                                            <option value="ws" data-prefix="">
+                                                ساموا
+                                            </option>
+                                            <option value="as" data-prefix="">
+                                                ساموا الأمريكية
+                                            </option>
+                                            <option value="sm" data-prefix="">
+                                                سان مارينو
+                                            </option>
+                                            <option value="bl" data-prefix="">
+                                                سانت بارتيليمي
+                                            </option>
+                                            <option value="pm" data-prefix="">
+                                                سانت بيير وميغويلون
+                                            </option>
+                                            <option value="vc" data-prefix="">
+                                                سانت فنسنت وغرينادين
+                                            </option>
+                                            <option value="kn" data-prefix="">
+                                                سانت كيتس ونيفيس
+                                            </option>
+                                            <option value="mf" data-prefix="">
+                                                سانت مارتن
+                                            </option>
+                                            <option value="sx" data-prefix="">
+                                                سانت مارتن
+                                            </option>
+                                            <option value="lc" data-prefix="">
+                                                سانتا لوسيا
+                                            </option>
+                                            <option value="sh" data-prefix="">
+                                                سانتا هيلينا
+                                            </option>
+                                            <option value="st" data-prefix="">
+                                                ساو تومي وبرينسيب
+                                            </option>
+                                            <option value="lk" data-prefix="">
+                                                سريلانكا
+                                            </option>
+                                            <option value="sj" data-prefix="">
+                                                سفالبارد وجان مايان
+                                            </option>
+                                            <option value="sk" data-prefix="">
+                                                سلوفاكيا
+                                            </option>
+                                            <option value="si" data-prefix="">
+                                                سلوفينيا
+                                            </option>
+                                            <option value="sg" data-prefix="">
+                                                سنغافورة
+                                            </option>
+                                            <option value="sy" data-prefix="">
+                                                سوريا
+                                            </option>
+                                            <option value="sr" data-prefix="">
+                                                سورينام
+                                            </option>
+                                            <option value="ch" data-prefix="">
+                                                سويسرا
+                                            </option>
+                                            <option value="sl" data-prefix="">
+                                                سيراليون
+                                            </option>
+                                            <option value="sc" data-prefix="">
+                                                سيشيل
+                                            </option>
+                                            <option value="mk" data-prefix="">
+                                                شمال مقدونيا
+                                            </option>
+                                            <option value="rs" data-prefix="">
+                                                صربيا
+                                            </option>
+                                            <option value="tj" data-prefix="">
+                                                طاجكستان
+                                            </option>
+                                            <option value="om" data-prefix="">
+                                                عُمان
+                                            </option>
+                                            <option value="gm" data-prefix="">
+                                                غامبيا
+                                            </option>
+                                            <option value="gh" data-prefix="">
+                                                غانا
+                                            </option>
+                                            <option value="gd" data-prefix="">
+                                                غرينادا
+                                            </option>
+                                            <option value="gl" data-prefix="">
+                                                غرينلاند
+                                            </option>
+                                            <option value="gt" data-prefix="">
+                                                غواتيمالا
+                                            </option>
+                                            <option value="gp" data-prefix="">
+                                                غوادلوب
+                                            </option>
+                                            <option value="gu" data-prefix="">
+                                                غوام
+                                            </option>
+                                            <option value="gy" data-prefix="">
+                                                غويانا
+                                            </option>
+                                            <option value="gf" data-prefix="">
+                                                غويانا الفرنسية
+                                            </option>
+                                            <option value="gg" data-prefix="">
+                                                غويرنسي
+                                            </option>
+                                            <option value="gn" data-prefix="">
+                                                غينيا
+                                            </option>
+                                            <option value="gq" data-prefix="">
+                                                غينيا الاستوائية
+                                            </option>
+                                            <option value="gw" data-prefix="">
+                                                غينيا بيساو
+                                            </option>
+                                            <option value="vu" data-prefix="">
+                                                فانواتو
+                                            </option>
+                                            <option value="fr" data-prefix="">
+                                                فرنسا
+                                            </option>
+                                            <option value="ve" data-prefix="">
+                                                فنزويلا
+                                            </option>
+                                            <option value="fi" data-prefix="">
+                                                فنلندا
+                                            </option>
+                                            <option value="vn" data-prefix="">
+                                                فيتنام
+                                            </option>
+                                            <option value="fj" data-prefix="">
+                                                فيجي
+                                            </option>
+                                            <option value="cy" data-prefix="">
+                                                قبرص
+                                            </option>
+                                            <option value="xy" data-prefix="">
+                                                قبرص الشمالية
+                                            </option>
+                                            <option value="kg" data-prefix="">
+                                                قرغيزستان
+                                            </option>
+                                            <option value="qa" data-prefix="">
+                                                قطر
+                                            </option>
+                                            <option value="kz" data-prefix="">
+                                                كازاخستان
+                                            </option>
+                                            <option value="nc" data-prefix="">
+                                                كاليدونيا الجديدة
+                                            </option>
+                                            <option value="hr" data-prefix="">
+                                                كرواتيا
+                                            </option>
+                                            <option value="kh" data-prefix="">
+                                                كمبوديا
+                                            </option>
+                                            <option value="ca" data-prefix="">
+                                                كندا
+                                            </option>
+                                            <option value="cw" data-prefix="">
+                                                كوراساو
+                                            </option>
+                                            <option value="kr" data-prefix="">
+                                                كوريا الجنوبية
+                                            </option>
+                                            <option value="kp" data-prefix="">
+                                                كوريا الشمالية
+                                            </option>
+                                            <option value="cr" data-prefix="">
+                                                كوستاريكا
+                                            </option>
+                                            <option value="xk" data-prefix="">
+                                                كوسوفو
+                                            </option>
+                                            <option value="co" data-prefix="">
+                                                كولومبيا
+                                            </option>
+                                            <option value="ki" data-prefix="">
+                                                كيريباتي
+                                            </option>
+                                            <option value="ke" data-prefix="">
+                                                كينيا
+                                            </option>
+                                            <option value="lv" data-prefix="">
+                                                لاتفيا
+                                            </option>
+                                            <option value="la" data-prefix="">
+                                                لاوس
+                                            </option>
+                                            <option value="lb" data-prefix="">
+                                                لبنان
+                                            </option>
+                                            <option value="lu" data-prefix="">
+                                                لوكسمبورغ
+                                            </option>
+                                            <option value="ly" data-prefix="" selected="selected">
+                                                ليبيا
+                                            </option>
+                                            <option value="lr" data-prefix="">
+                                                ليبيريا
+                                            </option>
+                                            <option value="lt" data-prefix="">
+                                                ليتوانيا
+                                            </option>
+                                            <option value="li" data-prefix="">
+                                                ليختنشتاين
+                                            </option>
+                                            <option value="ls" data-prefix="">
+                                                ليسوتو
+                                            </option>
+                                            <option value="mq" data-prefix="">
+                                                مارتينيك
+                                            </option>
+                                            <option value="mo" data-prefix="">
+                                                ماكاو
+                                            </option>
+                                            <option value="mw" data-prefix="">
+                                                مالاوي
+                                            </option>
+                                            <option value="mt" data-prefix="">
+                                                مالطا
+                                            </option>
+                                            <option value="ml" data-prefix="">
+                                                مالي
+                                            </option>
+                                            <option value="my" data-prefix="">
+                                                ماليزيا
+                                            </option>
+                                            <option value="yt" data-prefix="">
+                                                مايوت
+                                            </option>
+                                            <option value="mg" data-prefix="">
+                                                مدغشقر
+                                            </option>
+                                            <option value="va" data-prefix="">
+                                                مدينة الفاتيكان
+                                            </option>
+                                            <option value="eg" data-prefix="">
+                                                مصر
+                                            </option>
+                                            <option value="mn" data-prefix="">
+                                                منغوليا
+                                            </option>
+                                            <option value="mr" data-prefix="">
+                                                موريتانيا
+                                            </option>
+                                            <option value="mu" data-prefix="">
+                                                موريشيوس
+                                            </option>
+                                            <option value="mz" data-prefix="">
+                                                موزمبيق
+                                            </option>
+                                            <option value="md" data-prefix="">
+                                                مولدوفا
+                                            </option>
+                                            <option value="mc" data-prefix="">
+                                                موناكو
+                                            </option>
+                                            <option value="ms" data-prefix="">
+                                                مونتسيرات
+                                            </option>
+                                            <option value="me" data-prefix="">
+                                                مونتينيغرو
+                                            </option>
+                                            <option value="mm" data-prefix="">
+                                                ميانمار
+                                            </option>
+                                            <option value="fm" data-prefix="">
+                                                ميكرونيزيا
+                                            </option>
+                                            <option value="na" data-prefix="">
+                                                ناميبيا
+                                            </option>
+                                            <option value="nr" data-prefix="">
+                                                ناورو
+                                            </option>
+                                            <option value="np" data-prefix="">
+                                                نيبال
+                                            </option>
+                                            <option value="ng" data-prefix="">
+                                                نيجيريا
+                                            </option>
+                                            <option value="ni" data-prefix="">
+                                                نيكاراجوا
+                                            </option>
+                                            <option value="nz" data-prefix="">
+                                                نيوزيلندا
+                                            </option>
+                                            <option value="nu" data-prefix="">
+                                                نيوي
+                                            </option>
+                                            <option value="ht" data-prefix="">
+                                                هايتي
+                                            </option>
+                                            <option value="hn" data-prefix="">
+                                                هندوراس
+                                            </option>
+                                            <option value="nl" data-prefix="">
+                                                هولندا
+                                            </option>
+                                            <option value="hk" data-prefix="">
+                                                هونج كونج
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                    <div class="country-div">
+                                        <label for="zipcode">الرمز البريدي : </label>
+                                        <input type="text" id="zipcode" required maxlength="4">
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <br>
+
+
+
+                    </form>
+                    <input type="submit" id="confirm-btn-f" value="حجز">
+                    <br>
+                </div>
+            </div>
+            <br><br>
+        </div>
+        <footer>
+            <div class="spain-logo">
+                <div class="hr-img">
+                    <hr>
+                </div>
+                <div class="grey-icon"><img src="images/grey-icon.png"></div>
+                <div class="hr-img">
+                    <hr>
+                </div>
+            </div>
+
+            <ul class="social-icons">
+                <i class="fa-brands fa-tiktok"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-x-twitter"></i>
+                <i class="fa-brands fa-facebook-f"></i>
+            </ul>
+            <p class="rights">جميع الحقوق محفوظة 2024©</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
