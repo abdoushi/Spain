@@ -119,6 +119,7 @@
     margin-top: 200px;
     background-image: url(places11.png);
     background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .cities-p {
