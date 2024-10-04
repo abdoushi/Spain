@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+/*بداية تنسيقات الهيدر*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    direction: rtl;
+    font-family: "Cairo", sans-serif;
+}
+
+.header {
+    /*تنسيقات حاوية عناصر رأس الصفحة*/
+    background-color: white;
+    display: flex;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    position: fixed;
+    top: 0px;
+    z-index: 5;
+    justify-content: space-between;
+}
+
+.gallery {
+    color: #1d62c9;
+}
+
+
+.header ul li {
+    /*تنسيقات قوائم رأس الصفحة*/
+    display: inline;
+    margin-right: 50px;
+}
+
+.header ul li a {
+    /*تنسيقات روابط رأس الصفحة*/
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    transition: color .5s;
+    transition: text-shadow .5s;
+}
+
+.header ul li a:hover {
+    /*تأثيرات عند التأشير على رأس الصفحة*/
+    color: #1d62c9;
+    text-shadow: 2px 2px 4px rgba(63, 60, 255, 0.5);
+}
+
+.header ul li .gallery {
+    /*تنسيق رابط الرئيسية*/
+    color: #1d62c9;
+}
+
+.nav-cont {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+}
+
+.word {
+    background: transparent;
+}
+
+.spain-world {
+    /*كلمة إسبانيا*/
+    font-size: 35px;
+    margin-right: 40px;
+    margin-top: 12px;
+}
+
+.btn-login {
+    margin-left: 10px;
+    background-color: #267DFF;
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+    color: white;
+    border: none;
+    position: relative;
+    transition: background-color .5s;
+
+    transition: transform 0.5s;
+}
+
+.btn-login:hover {
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #009CC3;
+    color: black;
+}
+
+/*نهاية تنسيقات الهيدر*/
+
+.main-window {
+    margin-top: 100px;
+    background-image: url(gallery.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+}
+
+.main-window h4,
+p {
+    text-align: center;
+    color: white;
+    text-shadow: 4px -2px 22px rgba(0, 0, 0, 0.78);
+}
+
+.main-window h4 {
+    font-size: 100px;
+}
+
+.main-window p {
+    font-size: 100px;
+}
+
+.para {
+    color: #1d62c9;
+    font-size: 50px;
+    margin-top: 40px;
+    text-shadow: none;
+}
+
+.hr-3 {
+    background-color: #009CC3;
+    width: 25%;
+    margin: auto;
+    height: 3px;
+    border: none;
+}
+
+.card {
+    width: 90%;
+    height: 254px;
+    border-radius: 4px;
+    background: #ffeaea;
+    display: flex;
+    gap: 5px;
+    padding: .4em;
+    position: relative;
+    top: 100px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.card p {
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .5s;
+    background: #ffeaea;
+    border: 1px solid #009CC3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card p:hover {
+    flex: 4;
+    background: transparent;
+}
+
+.card p img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.card p:hover img {
+    display: block;
+}
+
+.card p span {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
+    color: #ff568e;
+    letter-spacing: .1em;
+}
+
+.card p:hover span {
+    transform: rotate(0);
+}
+
+/*بداية تنسيقات الفوتر*/
+
+footer {
+    background-color: rgb(24, 38, 38);
+    height: 400px;
+    width: 100%;
+    position: relative;
+    bottom: -107px;
+    margin-top: 100px;
+}
+
+footer .footer-contact {
+    color: white;
+    font-size: 40px;
+    margin-right: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.spain-logo {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.spain-logo .grey-icon img {
+    width: 200px;
+    height: 200px;
+    margin-top: 30px;
+}
+
+.spain-logo .hr-img {
+    width: 32%;
+    margin-top: 120px;
+    display: inline;
+    margin-inline: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons i {
+    font-size: 30px;
+    margin-right: 30px;
+    color: white;
+}
+
+footer .rights {
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+    margin-right: 30px;
+}
+
+/*نهاية تنسيقات الفوتر*/
