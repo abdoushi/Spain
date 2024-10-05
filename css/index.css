@@ -828,7 +828,7 @@ body {
 }
 
 .main-title {
-    margin-top: 10%;
+    margin-top: 17%;
     font-size: 4rem;
     color: white;
 }
@@ -836,7 +836,7 @@ body {
 .main-desc {
     font-size: 1.5rem;
     color: white;
-    margin-bottom: 10%;
+    margin-bottom: 50%;
 }
 .hotelSection{
     width: 100%;
@@ -853,7 +853,7 @@ body {
 }
 .hotel {
     width: 60vw;
-    height: 350px;
+    height: 210px;
     background-color: #FBEAFF;
     display: flex;
     justify-content: center;
@@ -865,14 +865,14 @@ body {
 
 
 .hotel .hotel-register {
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: center;
 }
 
 .hotel .hotel-register-btn {
     background-color: black;
     color: white;
-    width: 140px;
+    width: 100px;
     height: 50px;
     margin-top: 25px;
     transition: background-color .5s;
@@ -887,7 +887,7 @@ body {
 }
 
 .hotel .hotel-register-desc {
-    font-size: 16px;
+    font-size: 13px;
     text-align: center;
     color: black;
 }
