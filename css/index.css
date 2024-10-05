@@ -25,7 +25,7 @@ body {
     border-bottom: 1px solid gray;
     position: fixed;
     z-index: 5;
-    justify-content: space-between;
+
 }
 
 .header ul li {
@@ -694,7 +694,7 @@ footer .rights {
     margin-right: -30px;
 }
 
-@media (max-width : 720px) {
+@media (max-width : 1080px) {
 * {
     margin: 0;
     padding: 0;
@@ -722,12 +722,12 @@ body {
     position: sticky;
     top: 0;
     z-index: 5;
-    justify-content: space-between;
+    
 }
 .header ul li {
     /*تنسيقات قوائم رأس الصفحة*/
     display: inline;
-    margin-right: 25px;
+    margin-right: 0;
 }
 
 .header ul li a {
@@ -771,9 +771,10 @@ body {
 
 .spain-world {
     /*كلمة إسبانيا*/
-    font-size: 35px;
-    margin-right: 40px;
-    margin-top: 12px;
+    font-size: 0px;
+    margin-right: 0;
+    margin-top: 25px;
+    font-weight: bold;
 }
 
 .nav-cont {
@@ -781,19 +782,22 @@ body {
     display: flex;
     align-items: center;
     margin-left: 0;
+    width: 100%;
+    justify-content: space-around;
 }
 
 .btn-login {
-    margin-left: 10px;
+    margin-left: 5px;
     background-color: #267DFF;
     border-radius: 20px;
-    width: 100px;
-    height: 40px;
+    width: 80px;
+    height: 38px;
     color: white;
     border: none;
     position: relative;
+    font-size: 11px;
+    font-weight: bold;
     transition: background-color .5s;
-
     transition: transform 0.5s;
 }
 
@@ -819,12 +823,12 @@ body {
 
 .main-title {
     margin-top: 10%;
-    font-size: 6rem;
+    font-size: 4rem;
     color: white;
 }
 
 .main-desc {
-    font-size: 3.5rem;
+    font-size: 1.5rem;
     color: white;
     margin-bottom: 10%;
 }
@@ -886,6 +890,7 @@ body {
     display: flex;
     flex-flow: column;
     align-items: center;
+    width: 100%;
 }
 
 /* حل مشكلة تحرك الزر والكلام عند التصغير */
@@ -957,8 +962,8 @@ body {
 
 .img-cont .photo img {
     
-    width:  400px;
-    height: 400px;
+    width:  70%;
+    height: 270px;
     transition: box-shadow 0.3s, transform 0.3s;
     border-radius: 20px;
 
@@ -1118,7 +1123,7 @@ footer .rights {
 }
 
 .services {
-    width: 60%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center ;
@@ -1147,10 +1152,11 @@ footer .rights {
     display: flex;
     flex-flow: column;
     align-items: center;
+    width: 100%;
 }
 .services-img-container img {
     height: 0;
-    width: 300px;
+    width: 0;
     border-radius: 20px;
 }
 
@@ -1158,27 +1164,30 @@ footer .rights {
 
 .services-img-container .div-1-2 .div-1,
 .div-2 {
-    width: 300px;
+    width: 100%;
     height: 235px;
     align-self: center;
     background-color: rgb(198, 221, 238);
     border-radius: 20px;
-    padding: 15px;
-    padding-right: 30px;
+    padding: 13px;
+    padding-right: 13px;
     margin-bottom: 20px;
 }
 
 .services-img-container div i {
     text-align: center;
-    font-size: 60px;
+    font-size: 40px;
 }
-
+.div-1 p {
+    font-size: 16px;
+}
 .div-1-2 {
     display: flex;
     flex-direction: column;
-    margin-inline: 10px;
+    margin-inline: 3px;
     align-items: center;
     justify-content: space-between;
+    width: 50%;
 }
 
 .divs-serv-container {
@@ -1196,9 +1205,10 @@ footer .rights {
 }
 
 .about-us {
-    margin-right: 20px;
+    margin-right: 0px;
     margin-top: 50px;
     display: flex;
+    width: 100%;
 }
 /*  */
 .about-us-1 {
@@ -1235,6 +1245,7 @@ footer .rights {
 .mark {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .about-us .mark p::before {
@@ -1306,6 +1317,7 @@ footer .rights {
     position: relative;
     left: -0;
     top:0;
+    width: 100%;
 }
 
 .box {
