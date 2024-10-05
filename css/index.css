@@ -25,6 +25,8 @@ body {
     border-bottom: 1px solid gray;
     position: fixed;
     z-index: 5;
+    justify-content:space-between;
+
 
 }
 
@@ -85,6 +87,7 @@ body {
     display: flex;
     align-items: center;
     margin-left: 80px;
+    
 }
 
 .btn-login {
@@ -112,7 +115,7 @@ body {
 .title-desc {
     width: 100%;
     height: 100%;
-    background-image: url('/images/wallpaperflare.com_wallpaper.jpg');
+    background-image: url(wallpaperflare.com_wallpaper.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -135,7 +138,7 @@ body {
 .hotelSection{
     width: 100%;
     height: 800px;
-    background-image: url('/images/hotel.jpg');
+    background-image: url(hotel.jpg);
     background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -722,7 +725,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 5;
-    
+    justify-content: space-around;
+
 }
 .header ul li {
     /*تنسيقات قوائم رأس الصفحة*/
@@ -812,7 +816,7 @@ body {
 .title-desc {
     width: 100%;
     height: 100%;
-    background-image: url('/images/wallpaperflare.com_wallpaper.jpg');
+    background-image: url(wallpaperflare.com_wallpaper.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -835,7 +839,7 @@ body {
 .hotelSection{
     width: 100%;
     height: 500px;
-    background-image: url('/images/hotel.jpg');
+    background-image: url(hotel.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
