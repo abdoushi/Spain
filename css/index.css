@@ -468,7 +468,6 @@ footer .rights {
     width: 350px;
     height: 215px;
     background-color: rgb(198, 221, 238);
-    ;
     border-radius: 20px;
     padding: 15px;
     padding-right: 30px;
@@ -1005,6 +1004,7 @@ footer .footer-contact {
 
 .cityCards .cityDec {
     font-size: 20px;
+    margin-top: 10px;
 }
 
 .madrid-word, .barca-word, .sevilla-word {
@@ -1176,7 +1176,7 @@ footer .rights {
 .div-1-2 {
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
+    margin-inline: 10px;
     align-items: center;
     justify-content: space-between;
 }
@@ -1314,8 +1314,8 @@ footer .rights {
     display: flex;
     background-color: rgba(231, 238, 238, 0);
     border-radius: 10px;
-    width: 700px;
-    height: 500px;
+    width: 90%;
+    height: 600px;
     align-items: center;
     flex-direction: column-reverse;
 
@@ -1324,8 +1324,8 @@ footer .rights {
 .divof-cards {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 60%;
+    width: 70%;
+    height: 50%;
     border-radius: 10px;
 }
 
@@ -1333,7 +1333,8 @@ footer .rights {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(50%);
+    width: calc(70%);
+    height: 50%;
     font-size: 50px;
     background-color: #c8c6fd;
     color: rgb(14, 5, 48);
@@ -1395,7 +1396,7 @@ footer .rights {
 }
 
 .div-of-login-p {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     margin-right: 0;
     text-align: center;
