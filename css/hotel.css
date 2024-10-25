@@ -7,20 +7,30 @@
     direction: rtl;
     font-family: "Cairo", sans-serif;
 }
+html {
+    height: 100%;
+}
 body {
+    height: 100vh;
+    width: 100%;
     background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
 }
 .header {
     /*تنسيقات حاوية عناصر رأس الصفحة*/
     background-color: white;
     display: flex;
-    height: 100px;
+    height: auto;
     width: 100%;
+    align-items: center;
     border-bottom: 1px solid gray;
+    justify-content: center;
     position: fixed;
-    z-index: 5;
-    justify-content:space-between;
-
+        z-index: 5;
 
 }
 
@@ -52,15 +62,15 @@ body {
 .spain-world {
     /*كلمة إسبانيا*/
     font-size: 35px;
-    margin-right: 40px;
-    margin-top: 12px;
+    margin-right: 2%;
+    margin-left: auto;
 }
 
 .nav-cont {
     position: relative;
     display: flex;
     align-items: center;
-    margin-left: 80px;
+    margin-left: 2%;
     
 }
 
@@ -90,17 +100,14 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-}
-
-.background {
+    height: auto;
     background-image: url(hotelphoto.png);
     width: 100%;
     height: 90vh;
     background-size: cover;
     background-attachment: fixed;
-
-
 }
+
 
 .section1 .hotel1 .htitle {
     font-size: 7rem;
@@ -112,12 +119,11 @@ body {
 
 .hotel1 {
     width: 100%;
+    margin: 10% 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    position: absolute;
-    top: 20%;
     border-radius: 20px;
 }
 
@@ -134,7 +140,15 @@ body {
     background-attachment: fixed;
     width: 100%;
 }
-
+#choose-hotel {
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    height: 100%;
+}
 .section2 #choose-hotel h3 {
     font-size: 90px;
     color: white;
@@ -142,16 +156,7 @@ body {
     
 }
 
-.section2 #choose-hotel {
-    display: flex;
-    margin: auto;
-    flex-direction: row;
-    border-radius: 20px;
-    justify-content: center;
-    flex-wrap: wrap-reverse;
-    width: 100%;
-    height: 100%;
-}
+
 
 .card-cotainer {
     display: flex;
@@ -392,10 +397,9 @@ select {
     padding-right: 1%;
 }
 
-.section3 {
+.choosePage {
     display: flex;
     flex-flow: column;
-    border-radius: 26px;
     box-shadow: 1px 1px 10px rgb(0, 0, 0, 1);
 }
 
@@ -549,22 +553,29 @@ select {
 }
 
 .section-confirm {
-    background-image: url(donehotel.png);
     width: 100%;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    box-shadow: 1px 1px 10px rgb(0, 0, 0, 1);
+height: 100vh;
+    margin-top: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
+.done-body{
+    background-image: url(donehotel.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    
+}
 .donetitle {
-    font-size: 8rem;
+    font-size: 5rem;
     text-shadow: 1px 1px black;
     color: rgb(255, 255, 255);
 }
@@ -583,7 +594,14 @@ select {
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px black;
 }
-
+@media (max-width : 1080px) {
+    .main-text h4 {
+        font-size: 1.3rem;
+        color: rgb(255, 255, 255);
+        text-shadow: 1px 1px black;
+        text-align: center;
+    }
+}
 #back-to-index {
     background-color: #267DFF;
     border-radius: 50px;
@@ -610,17 +628,22 @@ footer {
     width: 100%;
     display: flex;
     flex-flow: column;
-    align-items: center;
+    align-items: center;    
     margin-top: auto;
 }
 
-
+.rights {
+    color: white;
+    text-align: center;
+margin: 2% auto;   
+margin-bottom: 0; 
+}
 
 .spain-logo {
     display: flex;
     flex-flow: row;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: auto;
     width: 100%;
 }
 
@@ -649,13 +672,7 @@ footer {
     color: white;
 }
 
-footer .rights {
-    color: white;
-    text-align: center;
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 
 @media (max-width : 1080px) {
     .hotels-container {
@@ -741,11 +758,10 @@ footer .rights {
         /*تنسيقات حاوية عناصر رأس الصفحة*/
         background-color: white;
         display: flex;
-        height: 80px;
+        height: auto;
         width: 100%;
         border-bottom: 1px solid gray;
-        position: sticky;
-        top: 0;
+        position: fixed;
         z-index: 5;
         justify-content: space-around;
     
@@ -793,23 +809,22 @@ footer .rights {
     }
     
     .btn-login {
-        margin-left: 5px;
-        background-color: #267DFF;
-        border-radius: 20px;
-        width: 80px;
-        height: 38px;
-        color: white;
+        margin-left: 0;
+        background-color: #267dff00;
+        border-radius: 0;
+        width: auto;
+        height: auto;
+        color:  #267DFF;
         border: none;
         position: relative;
         font-size: 11px;
         font-weight: bold;
-        transition: background-color .5s;
-        transition: transform 0.5s;
+  
     }
     
     .btn-login:hover {
         cursor: pointer;
-        background-color: white;
+        
         border: 1px solid #009CC3;
         color: black;
     }
